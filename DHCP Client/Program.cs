@@ -6,8 +6,6 @@ class DhcpClient
 {
     static void Main()
     {
-        Console.WriteLine("Yeu cau cap lai dia chi IP moi...\n");
-
         ProcessStartInfo psi = new ProcessStartInfo("ipconfig", "/renew")
         {
             RedirectStandardOutput = true,
@@ -23,10 +21,5 @@ class DhcpClient
 
         Console.WriteLine(output);
     }
-    static bool IsRunAsAdmin()
-    {
-        WindowsIdentity id = WindowsIdentity.GetCurrent();
-        WindowsPrincipal principal = new WindowsPrincipal(id);
-        return principal.IsInRole(WindowsBuiltInRole.Administrator);
     }
 }
